@@ -74,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
 			if (product.get().getPrice() + (product.get().getPrice() / 2) <  productDto.getPrice()) {
 				productDto.setStatus(Status.PENDING_APPROVAL);
 				Optional<ApprovalQueue> apProduct = this.approvalQueueRepository.findByProductId(
-						productId);
+						UUID.fromString(productId));
 				if (!apProduct.isPresent()) {
 					this.approvalQueueRepository.save(
 							new ApprovalQueue(UUID.fromString(productId)));
@@ -92,7 +92,7 @@ public class ProductServiceImpl implements ProductService {
 				UUID.fromString(productId));
 		if (product.isPresent()) {
 			Optional<ApprovalQueue> apProduct = this.approvalQueueRepository.findByProductId(
-					productId);
+					UUID.fromString(productId));
 			if (!apProduct.isPresent()) {
 				this.approvalQueueRepository.save(new ApprovalQueue(UUID.fromString(productId)));
 			}

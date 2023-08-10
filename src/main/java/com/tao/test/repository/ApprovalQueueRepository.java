@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ApprovalQueueRepository extends JpaRepository<ApprovalQueue, String> {
-	Optional<ApprovalQueue> findByProductId(String productId);
+	Optional<ApprovalQueue> findByProductId(UUID productId);
 	@Query("Select u from product u, approval_queue t where u.productId = t.productId order by t.requestDate")
 	Collection<Product> findAllApprovalQueue(PageRequest of);
 	Optional<ApprovalQueue> findByApprovalId(UUID approvalId);
