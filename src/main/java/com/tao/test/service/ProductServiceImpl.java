@@ -124,7 +124,7 @@ public class ProductServiceImpl implements ProductService {
 				return this.productRepository.save(product.get());
 			}
 			throw new ResourceNotFoundException(
-					"Product Not Found : " + product.get().getProductId());
+					"Product Not Found : " + apProduct.get().getProductId());
 		}
 		throw new ResourceNotFoundException("Invalid Approval Id : " + approvalId);
 	}
@@ -143,7 +143,7 @@ public class ProductServiceImpl implements ProductService {
 				return this.productRepository.save(product.get());
 			}
 			throw new ResourceNotFoundException(
-					"Product Not Found : " + product.get().getProductId());
+					"Product Not Found : " + apProduct.get().getProductId());
 		}
 		throw new ResourceNotFoundException("Invalid Approval Id : " + approvalId);
 	}
